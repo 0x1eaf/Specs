@@ -1,0 +1,37 @@
+{
+  "name": "HTMLReader",
+  "version": "2.0.3",
+  "summary": "A WHATWG-compliant HTML parser in Objective-C.",
+  "homepage": "https://github.com/0x1eaf/HTMLReader",
+  "license": "Public domain",
+  "authors": {
+    "Nolan Waite": "nolan@nolanw.ca"
+  },
+  "source": {
+    "git": "https://github.com/0x1eaf/HTMLReader.git",
+    "tag": "v2.0.3"
+  },
+  "source_files": "Sources/**/*.[hm]",
+  "requires_arc": true,
+  "exclude_files": "Sources/HTMLNode.m",
+  "platforms": {
+    "ios": "5.0",
+    "osx": "10.7",
+    "tvos": "9.0",
+    "watchos": "2.0"
+  },
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "source_files": [
+        "Sources/HTMLNode.m",
+        "Sources/**/*.h"
+      ],
+      "requires_arc": false,
+      "pod_target_xcconfig": {
+        "OTHER_LDFLAGS": "$(inherited) -undefined dynamic_lookup",
+        "CLANG_ENABLE_OBJC_WEAK": "YES"
+      }
+    }
+  ]
+}
